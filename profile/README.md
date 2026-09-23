@@ -15,3 +15,13 @@
 | [music_migration](https://github.com/alkalurop/music_migration) | [ixamal/music_migration](https://github.com/ixamal/music_migration) | Traktor / Rekordbox path remap after files move |
 
 Day-to-day work stays on **ixamal**. This org is the monthly snapshot of that current status.
+
+**Benchmark 2026-09-23** (18:24 UTC). Full ixamal `main` mirror, ahead of the 15th. Functioning 16ch rig that afternoon.
+
+| Repo | `main` |
+| --- | --- |
+| ix | `7caf5f7` |
+| stems | `8a16432` |
+| ix_bangers | `8b17f46` |
+| blackhole | `83cf17a` |
+| music_migration | `7e8768c` |
