@@ -2,7 +2,7 @@
 
 Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
 
-**Git today** is the repo list below — the crate, the stems factory, migration helpers, and the scripts that keep a real library honest. **Alkalurops** is the name for the wider idea: live visuals that track the set while you play, built on the laptop next to the booth, with an **Apache** core in the open and product layers when they are ready. Deeper strategy stays in private notes; this page is the story at a glance.
+**Git today** is the repo list below — the crate, the stems factory, migration helpers, and the scripts that keep a real library concise, robust and cross platform. **Alkalurops** is the name for the wider idea: live visuals that track the set while you play, built on the laptop next to the booth, with an **Apache** core in the open and product layers when they are ready. Deeper strategy stays in private notes; this page is the story at a glance.
 
 [alkalurops.org](https://www.alkalurops.org)
 
