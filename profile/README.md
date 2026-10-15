@@ -2,25 +2,25 @@
 
 Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
 
-**Git today** is the repo list below. **Alkalurops** is also live visuals that track the set — laptop-local, Apache core in the open, product layers when they are ready. Strategy detail stays private; this page stays overview only.
+**Git today** is the repo list below — the crate, the stems factory, migration helpers, and the scripts that keep a real library honest. **Alkalurops** is the name for the wider idea: live visuals that track the set while you play, built on the laptop next to the booth, with an **Apache** core in the open and product layers when they are ready. Deeper strategy stays in private notes; this page is the story at a glance.
 
 [alkalurops.org](https://www.alkalurops.org)
 
 ## Marketplace
 
-Resolume, Synesthesia, TouchDesigner, and custom Unreal rigs are how many acts already run a show. We use those patterns where they fit.
+Most working acts already know how they want to look. **Resolume** carries loops and clips through a mature mixer. **Synesthesia** and **TouchDesigner** give you shader depth when you want to author pixels by hand. **Custom Unreal rigs** show up when the room is big enough to justify a real-time 3D pipeline. Those workflows earned their place; we borrow from them and plug into them where it makes sense.
 
-We are building another lane: **generative picture that follows the performance**. It renders in real time on the machine in the booth. No cloud frame upload. No offline render farm.
+What we are adding is another lane: **generative picture that follows the performance** as it happens. The picture is rendered in real time on the machine in the booth, so you are not uploading frames to someone else’s cloud and you are not waiting on an offline render farm between songs. The goal is a show that breathes with the mix — energy, tension, release — without turning the DJ booth into a render queue.
 
-Private market notes also track **IoT and ARKit** — performer face and body, audience phones, small stage devices, plus deck data — so visuals can follow the artist, not only the waveform. We are testing pieces incrementally. First proofs run on **my own DJ setup** before we talk venue scale.
+The same story extends to **IoT and ARKit**. We are interested in face and body cues from the performer on the mic, in audience participation through phones in the room, and in small stage devices that can speak the same local language as the decks. Fused with BPM, fader, and phrase data from **Rekordbox** or **Traktor**, that gives visuals something richer than a waveform alone: they can respond to the human holding the set, not only to the analyzer. We are evaluating those pieces incrementally, in private market notes, because each venue and each act wires the room differently. The first honest proofs run on **my own DJ setup** — same crates, same routing surprises, same late-night fixes — before we claim anything about festival scale.
 
 ## Platform
 
-Audio and control data leave the decks on the local network. Visuals stay stage-safe in 3D. Inference stays local. The open repo is Apache. A simpler app can sit on top for people who do not want a terminal. Venues can go bigger later. The tools support the performance. They are not the headliner.
+The platform story is a straight line from booth to picture. Audio and control data leave the decks on the **local network** (loopback-first, stage-safe). Visuals are composed in real-time **3D** so they can sit behind or beside the performer without fighting the room. **Inference stays local** on the Mac you already brought to the gig. The open repository stays **Apache** so the community can fork the bus without a locker in the cloud; a simpler app can sit on top for people who do not want to live in a terminal. Venues can grow into bigger installs later — more outputs, more machines — but the default is one artist, one laptop, one truth about what track is playing. The tools are there to support the performance. They are not the headliner.
 
 ## Roadmap
 
-Git ships music library organization, stems, crates, and remix decks first. Paths and names have to be true before OSC can drive Unreal, ComfyUI, and other DCC delivery paths as proof of concept.
+Sequencing matters because a visual bus is useless if the library lies. **Git ships the foundation first**: music library organization, stems, crates, and remix decks — the boring work that makes paths and names agree across **Apple Music**, **Traktor**, and **Rekordbox**. Only after that foundation holds do we push **OSC** forward into **Unreal**, **ComfyUI**, and other **DCC** delivery paths as proof of concept. What becomes a shrink-wrapped app, what stays a service, and what ships when — that ordering lives in private roadmap notes, not in a public promise date. What you see here is the crate today and the direction of travel tomorrow.
 
 ## Two GitHub homes
 
@@ -47,11 +47,7 @@ No audio in git. Scripts, docs, and how a real crate got fixed.
 
 ## Why the crate repos exist
 
-I DJ. I have a day job and a family. The library grew anyway.
-
-Wrong tags. Duplicate rows. USB crates. Three apps that disagree on the path.
-
-The git stack separates **stems from tracks**, fixes **genres and playlists**, and runs **stem batches** when the names are right. That metadata feeds the visual bus later. The code stays **Apache** so the crate stays yours, not a cloud locker.
+I DJ, I have a day job, and I have a family, and the library still grew on its own — wrong tags, duplicate rows, USB crates, three apps that disagree on the same path. The git stack exists because I needed something that separates **stems from tracks**, fixes **genres and playlists**, and runs **stem batches** once the names are true. That metadata is what will feed the visual bus later; you cannot scrub Niagara to the right record if Rekordbox and Traktor do not agree on what the record is. The code stays **Apache** so the crate stays yours, not a cloud locker someone else can switch off.
 
 ---
 
