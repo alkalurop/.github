@@ -2,19 +2,25 @@
 
 Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
 
-That is what you see in **git today** (the repos below). The wider company is **live visuals that follow the set** — built on the laptop next to the booth, open **Apache** core in git, product layers later. Details stay in private strategy notes for now; public copy stays high level.
+**Git today** is the repo list below. **Alkalurops** is also live visuals that track the set — laptop-local, Apache core in the open, product layers when they are ready. Strategy detail stays private; this page stays overview only.
 
 [alkalurops.org](https://www.alkalurops.org)
 
-### Where we’re headed (public summary)
+## Marketplace
 
-**Market & competition (internal analysis).** Most working DJs still live in a narrow band: loop libraries and clip mixers, shader toys that cap out fast, or pro tools that need a VJ salary. Festival-grade 3D rigs exist, but not for a solo act on one machine. The bet is generative picture that listens to the performance — without shipping pixels to the cloud.
+Resolume, Synesthesia, TouchDesigner, and custom Unreal rigs each solve real problems. Loops are valid. Shader engines are valid. Touring 3D is valid. We are not here to talk down any of that.
 
-**Platform story (internal narrative).** One pipeline from booth audio data to stage-safe visuals: local inference, real-time 3D compositing, loopback-only control. Open source for the community; simpler packaged tools for people who will not live in a terminal; optional venue-scale offerings later. The machine assists; it does not headline.
+We are building another lane: **generative picture that follows the performance**, rendered on the machine in the booth, without sending frames to the cloud. Market notes also cover **IoT and ARKit** — face and body cues from the performer, small stage devices, fused with deck data — so visuals can react to the human on the mic, not only to a waveform. First proofs run on **my own DJ setup** before we claim venue scale.
 
-**Business & sequencing (internal roadmap).** What ships free in git, what becomes an app, what stays services — and in what order — lives in a separate working doc. GitHub shows the crate foundation first because a visual bus is useless if the library lies about paths and names.
+## Platform
 
-**Two GitHub homes, same code repos:**
+Audio and control data leave the decks on the local network. Visuals stay stage-safe in 3D. Inference stays local. The open repo is Apache. A simpler app can sit on top for people who do not want a terminal. Venues can go bigger later. The tool supports the set. It is not the headliner.
+
+## Roadmap
+
+Git ships the crate first. Paths and names have to be true before OSC means anything. What becomes an app, what stays services, and when — that ordering lives in private notes, not here.
+
+## Two GitHub homes
 
 - **[ixamal](https://github.com/ixamal)** — where I commit. Issues and milestones live here.
 - **alkalurop (this org)** — public mirror, refreshed around the **15th** each month.
@@ -39,15 +45,21 @@ No audio in git. Scripts, docs, and how a real crate got fixed.
 
 ## Why the crate repos exist
 
-I DJ. Day job. Family. The library still grew — wrong tags, duplicate rows, USB crates, three apps arguing about paths. The git stack sorts **stems vs tracks**, fixes **genres and playlists**, and runs **stem batches** when names are true. It feeds the visual platform (clean metadata → OSC → stage) and stays **Apache** so others can use it without a locker in the cloud.
+I DJ. I have a day job and a family. The library grew anyway.
+
+Wrong tags. Duplicate rows. USB crates. Three apps that disagree on the path.
+
+The git stack separates **stems from tracks**, fixes **genres and playlists**, and runs **stem batches** when the names are right. That metadata feeds the visual bus later. The code stays **Apache** so the crate stays yours, not a cloud locker.
 
 ---
 
 ## How it works today
 
-**Python + shell on your Mac.** **CRATER** / **BABYLON** for hygiene, optional stem budgets, deck sync. Reports: `~/local_tools/crate/reports/`. Details: [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
+**Python and shell on your Mac.** **CRATER** and **BABYLON** handle hygiene, optional stem budgets, and deck sync.
 
-The visual stack is in motion in **ix**; not a shrink-wrapped product yet.
+Reports: `~/local_tools/crate/reports/`. How-to: [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
+
+Visual work is active in **ix**. It is not a shrink-wrapped app yet.
 
 **Licenses:** **Apache-2.0** — ix, stems, blackhole, music_migration, ix_bangers. **GPL** — grid, stage.
 
