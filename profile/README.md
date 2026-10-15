@@ -2,15 +2,17 @@
 
 Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
 
-That is what you see in **git today** (the repos below). The company direction is bigger: **live generative visuals** on the same laptop as the set — local edge AI frames (ComfyUI / PyTorch), composited in **Unreal Engine 5**, steered by **OSC** from DJ software and DAWs (BPM, stems, FFT, track metrics). Not cloud renders. Not another loop pack. Open core **Apache 2.0** now; plug-and-play app and venue integrations on the roadmap.
-
-**Strategy (read these first — they stay ahead of GitHub copy):**
-
-- [Competitive landscape & market analysis](https://docs.google.com/document/d/1fesyFG6p0XEdStoJnJm6ZcphVYaHeY5i6sC1h8K7ix0/edit?usp=sharing)
-- [Integrated About Us / platform narrative](https://docs.google.com/document/d/1aT4sI3bsH29kUbd2JSjc2yvWJSU3gYu4IwcUmlxvmig/edit?usp=sharing)
-- [Strategy doc (Google Doc)](https://docs.google.com/document/d/1bGbIFAIGGIv37YGlm0wGjarBI-5f9RfL6DAz5456obk/edit?usp=sharing)
+That is what you see in **git today** (the repos below). The wider company is **live visuals that follow the set** — built on the laptop next to the booth, open **Apache** core in git, product layers later. Details stay in private strategy notes for now; public copy stays high level.
 
 [alkalurops.org](https://www.alkalurops.org)
+
+### Where we’re headed (public summary)
+
+**Market & competition (internal analysis).** Most working DJs still live in a narrow band: loop libraries and clip mixers, shader toys that cap out fast, or pro tools that need a VJ salary. Festival-grade 3D rigs exist, but not for a solo act on one machine. The bet is generative picture that listens to the performance — without shipping pixels to the cloud.
+
+**Platform story (internal narrative).** One pipeline from booth audio data to stage-safe visuals: local inference, real-time 3D compositing, loopback-only control. Open source for the community; simpler packaged tools for people who will not live in a terminal; optional venue-scale offerings later. The machine assists; it does not headline.
+
+**Business & sequencing (internal roadmap).** What ships free in git, what becomes an app, what stays services — and in what order — lives in a separate working doc. GitHub shows the crate foundation first because a visual bus is useless if the library lies about paths and names.
 
 **Two GitHub homes, same code repos:**
 
@@ -45,7 +47,7 @@ I DJ. Day job. Family. The library still grew — wrong tags, duplicate rows, US
 
 **Python + shell on your Mac.** **CRATER** / **BABYLON** for hygiene, optional stem budgets, deck sync. Reports: `~/local_tools/crate/reports/`. Details: [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
 
-Visual stack (ComfyUI, UE5, OSC bus) lives in **ix** docs and evolves per the strategy docs above — not fully productized yet.
+The visual stack is in motion in **ix**; not a shrink-wrapped product yet.
 
 **Licenses:** **Apache-2.0** — ix, stems, blackhole, music_migration, ix_bangers. **GPL** — grid, stage.
 
