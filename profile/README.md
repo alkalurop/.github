@@ -2,7 +2,11 @@
 
 Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
 
-[alkalurops.org](https://www.alkalurops.org)
+That is what you see in git today. The wider project is **[Alkalurops the lab](https://www.alkalurops.org/about-us)** — live performance systems and real-time visuals that react to sound, built on the laptop beside the booth (not rendered in the cloud, not a loop masquerading as a set). DJ software and DAWs feed tempo and controls over the local network; the picture follows the room. The machine is an instrument: it tracks your hands, it does not stand in for you.
+
+**Alkalurops** is a star in Boötes — the herdsman's staff. We use the name as that staff: a heading, not a brand deck. Frank Herbert's maker world **Ix** is why the main repo is [ix](https://github.com/ixamal/ix). Core code is **Apache 2.0**; if you want live crate + visual tooling on stage, fork, collaborate, argue in issues on **ixamal**.
+
+[alkalurops.org](https://www.alkalurops.org) · [About us](https://www.alkalurops.org/about-us)
 
 **Two GitHub homes, same repos:**
 
