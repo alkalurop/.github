@@ -2,22 +2,26 @@
 
 Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
 
-That is what you see in git today. The wider project is **[Alkalurops the lab](https://www.alkalurops.org/about-us)** — live performance systems and real-time visuals that react to sound, built on the laptop beside the booth (not rendered in the cloud, not a loop masquerading as a set). DJ software and DAWs feed tempo and controls over the local network; the picture follows the room. The machine is an instrument: it tracks your hands, it does not stand in for you.
+That is what you see in **git today** (the repos below). The company direction is bigger: **live generative visuals** on the same laptop as the set — local edge AI frames (ComfyUI / PyTorch), composited in **Unreal Engine 5**, steered by **OSC** from DJ software and DAWs (BPM, stems, FFT, track metrics). Not cloud renders. Not another loop pack. Open core **Apache 2.0** now; plug-and-play app and venue integrations on the roadmap.
 
-**Alkalurops** is a star in Boötes — the herdsman's staff. We use the name as that staff: a heading, not a brand deck. Frank Herbert's maker world **Ix** is why the main repo is [ix](https://github.com/ixamal/ix). Core code is **Apache 2.0**; if you want live crate + visual tooling on stage, fork, collaborate, argue in issues on **ixamal**.
+**Strategy (read these first — they stay ahead of GitHub copy):**
 
-[alkalurops.org](https://www.alkalurops.org) · [About us](https://www.alkalurops.org/about-us)
+- [Competitive landscape & market analysis](https://docs.google.com/document/d/1fesyFG6p0XEdStoJnJm6ZcphVYaHeY5i6sC1h8K7ix0/edit?usp=sharing)
+- [Integrated About Us / platform narrative](https://docs.google.com/document/d/1aT4sI3bsH29kUbd2JSjc2yvWJSU3gYu4IwcUmlxvmig/edit?usp=sharing)
+- [Strategy doc (Google Doc)](https://docs.google.com/document/d/1bGbIFAIGGIv37YGlm0wGjarBI-5f9RfL6DAz5456obk/edit?usp=sharing)
 
-**Two GitHub homes, same repos:**
+[alkalurops.org](https://www.alkalurops.org)
+
+**Two GitHub homes, same code repos:**
 
 - **[ixamal](https://github.com/ixamal)** — where I commit. Issues and milestones live here.
-- **alkalurop (this org)** — a public copy, refreshed around the **15th** each month so the story stays in one place without making you dig through my working org.
+- **alkalurop (this org)** — public mirror, refreshed around the **15th** each month.
 
-No audio in git. Ever. Just scripts, docs, and the paper trail of how a real crate got fixed.
+No audio in git. Scripts, docs, and how a real crate got fixed.
 
 ---
 
-## Pick what you need
+## Pick what you need (shipping now)
 
 | If you… | Open |
 | --- | --- |
@@ -31,31 +35,19 @@ No audio in git. Ever. Just scripts, docs, and the paper trail of how a real cra
 
 ---
 
-## Why I built this
+## Why the crate repos exist
 
-I DJ. I also have a day job and a family. The library kept growing anyway — mix CDs tagged wrong, Beatport genres pasted as `EDM, House`, the same file twice because iTunes got creative, a USB drive that *was* the crate until you unplugged it.
-
-I needed to **sort stems from full tracks**, file things **artist / album / title**, fix **genres and playlists** without living in three apps, and run **stem batches** when the names were finally true. All on nights and weekends. The point is to leave something **useful on GitHub** — Apache-licensed core, readable docs — not a locked cloud crate.
+I DJ. Day job. Family. The library still grew — wrong tags, duplicate rows, USB crates, three apps arguing about paths. The git stack sorts **stems vs tracks**, fixes **genres and playlists**, and runs **stem batches** when names are true. It feeds the visual platform (clean metadata → OSC → stage) and stays **Apache** so others can use it without a locker in the cloud.
 
 ---
 
 ## How it works today
 
-Mostly **Python and shell on your Mac**. Long jobs like **CRATER** and **BABYLON** tie hygiene, optional stem budgets, and deck sync together. Cursor helps me move fast; you do not need Cursor to use the CLIs.
+**Python + shell on your Mac.** **CRATER** / **BABYLON** for hygiene, optional stem budgets, deck sync. Reports: `~/local_tools/crate/reports/`. Details: [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
 
-Rough order: fix names and genres → optional stem factory → quit Rekordbox/Traktor when xml/NML writes → daily crate pass → reload rekordbox xml with `<>` (not “import collection”).
+Visual stack (ComfyUI, UE5, OSC bus) lives in **ix** docs and evolves per the strategy docs above — not fully productized yet.
 
-Reports land under `~/local_tools/crate/reports/`. Stem runs log under `stems/log/`. Dry-run is the default almost everywhere. Read each repo’s README — the good stuff is in `docs/crate.md` on **ix**.
-
-**Licenses:** **Apache-2.0** for ix, stems, blackhole, music_migration, ix_bangers. **GPL** for grid and stage so GPL grid/Blender code never lands inside the Apache tree.
-
----
-
-## Where it’s headed
-
-Right now it’s terminal-heavy and agent-friendly because that’s how I ship while employed elsewhere. The direction is normal **open-source DJ organization tools** — clearer UI, safer defaults, docs your mate can follow — with the same rule: **your files, your paths, your decks**.
-
-AI is a shortcut for building it, not the product. The product is a library that still works on Saturday.
+**Licenses:** **Apache-2.0** — ix, stems, blackhole, music_migration, ix_bangers. **GPL** — grid, stage.
 
 ---
 
@@ -71,4 +63,4 @@ AI is a shortcut for building it, not the product. The product is a library that
 | [grid](https://github.com/alkalurop/grid) | [ixamal/grid](https://github.com/ixamal/grid) |
 | [stage](https://github.com/alkalurop/stage) | [ixamal/stage](https://github.com/ixamal/stage) |
 
-Last full mirror: **2026-10-15**. SHAs: [ixamal/ix `docs/notes.md`](https://github.com/ixamal/ix/blob/main/docs/notes.md) (Alkalurop bridge section).
+Last mirror: **2026-10-15** — SHAs in [ixamal/ix `docs/notes.md`](https://github.com/ixamal/ix/blob/main/docs/notes.md).
