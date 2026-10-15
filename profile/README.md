@@ -53,11 +53,11 @@ I DJ, I have a day job, and I have a family, and the library still grew on its o
 
 ## How it works today
 
-**Python and shell on your Mac.** **CRATER** and **BABYLON** handle hygiene, optional stem budgets, and deck sync.
+Everything that ships right now is **Python and shell on your Mac** — no installer, no account, no phone-home. You clone the repos you need, point them at your music tree, and run passes when the library drifts. That is intentional: the crate on disk is the source of truth, not a dashboard that might disagree with Rekordbox tomorrow.
 
-Reports: `~/local_tools/crate/reports/`. How-to: [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
+**CRATER** is the daily hygiene pass — genres, playlists, capture folders, Traktor and Rekordbox alignment, and the quiet cleanup that keeps a growing library from turning into duplicate rows and broken paths. **BABYLON** is the heavier night run when you want hygiene plus an optional **STEMIT** budget (overnight stems) and a clean quit of the decks so the databases can sync without you clicking through save dialogs. Both write human-readable reports under `~/local_tools/crate/reports/` so you can see what moved, what was skipped, and what needs a reload in the app. Step-by-step commands and flags live in [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
 
-Visual work is active in **ix**. It is not a shrink-wrapped app yet.
+Parallel to the crate, visual work is already moving in **ix** — OSC from the decks, local runtime glue, and experiments that will eventually feed Unreal and the rest of the DCC path described above. None of that is a shrink-wrapped product yet; it is the same repo family, the same Apache ethic, and the same rule that control stays on **127.0.0.1** until you deliberately widen it.
 
 **Licenses:** **Apache-2.0** — ix, stems, blackhole, music_migration, ix_bangers. **GPL** — grid, stage.
 
