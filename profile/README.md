@@ -8,17 +8,19 @@ Open-source DJ library tooling — names, folders, playlists, stems, and the bor
 
 ## Marketplace
 
-There are current workflows in performance with Resolume, Synesthesia, TouchDesigner, and custom Unreal rigs which each solve real problems. 
+Resolume, Synesthesia, TouchDesigner, and custom Unreal rigs are how many acts already run a show. We use those patterns where they fit.
 
-We are building another lane with **generative picture that follows the performance**. Rendered in realtime on the machine in the booth, without sending frames to the cloud or rendering offline. Market notes also cover **IoT and ARKit** — face and body cues from the performer and audience participation through smartphone devices, small stage devices, fused with deck data are all incrementally being evaluated to deliver next generation live performances. So visuals can react to the artist performing, not only to a waveform. First proofs run on **my own DJ setup** before we claim venue scale.
+We are building another lane: **generative picture that follows the performance**. It renders in real time on the machine in the booth. No cloud frame upload. No offline render farm.
+
+Private market notes also track **IoT and ARKit** — performer face and body, audience phones, small stage devices, plus deck data — so visuals can follow the artist, not only the waveform. We are testing pieces incrementally. First proofs run on **my own DJ setup** before we talk venue scale.
 
 ## Platform
 
-Audio and control data leave the decks on the local network. Visuals stay stage-safe in 3D. Inference stays local. The open repo is Apache. A simpler app can sit on top for people who do not want a terminal. Venues can go bigger later. The tools supports the performance and are not the headliner.
+Audio and control data leave the decks on the local network. Visuals stay stage-safe in 3D. Inference stays local. The open repo is Apache. A simpler app can sit on top for people who do not want a terminal. Venues can go bigger later. The tools support the performance. They are not the headliner.
 
 ## Roadmap
 
-Git ships music library organization, stems, crates, and remix decks first. Paths and names have to be true before OSC moves forward with Unreal, ComfyUI, and other DCC delivery mechanisms as proof of concept.
+Git ships music library organization, stems, crates, and remix decks first. Paths and names have to be true before OSC can drive Unreal, ComfyUI, and other DCC delivery paths as proof of concept.
 
 ## Two GitHub homes
 
