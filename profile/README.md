@@ -5,7 +5,7 @@
 
 ---
 
-## Technical Context & Industry Vacuum
+## Technical Context and Competitive Landscape
 
 Live audio-visual performance currently faces a clear structural bottleneck across available toolsets:
 
