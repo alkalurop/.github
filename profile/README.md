@@ -1,124 +1,92 @@
 # Alkalurops
 
-> **Real-time, zero-latency generative visual infrastructure for live performance.**  
-> Open-source (Apache 2.0) edge AI running alongside your DAW on a single laptop — no audio dropouts, no cloud reliance, no enterprise media server hardware required.
+Open-source DJ library tooling — names, folders, playlists, stems, and the boring glue between Apple Music, Traktor, and Rekordbox.
+
+**Git today** is the repo list below — the crate, the stems factory, migration helpers, and the scripts that keep a real library honest. **Alkalurops** is the name for the wider idea: live visuals that track the set while you play, built on the laptop next to the booth, with an **Apache** core in the open and product layers when they are ready. Deeper strategy stays in private notes; this page is the story at a glance.
+
+[alkalurops.org](https://www.alkalurops.org)
+
+## Marketplace
+
+Most working acts already know how they want to look. **Resolume** carries loops and clips through a mature mixer. **Synesthesia** and **TouchDesigner** give you shader depth when you want to author pixels by hand. **Custom Unreal rigs** show up when the room is big enough to justify a real-time 3D pipeline. Those workflows earned their place; we borrow from them and plug into them where it makes sense.
+
+What we are adding is another lane: **generative picture that follows the performance** as it happens. The picture is rendered in real time on the machine in the booth, so you are not uploading frames to someone else’s cloud and you are not waiting on an offline render farm between songs. The goal is a show that breathes with the mix — energy, tension, release — without turning the DJ booth into a render queue.
+
+The same story extends to **IoT and ARKit**. We are interested in face and body cues from the performer on the mic, in audience participation through phones in the room, and in small stage devices that can speak the same local language as the decks. Fused with BPM, fader, and phrase data from **Rekordbox** or **Traktor**, that gives visuals something richer than a waveform alone: they can respond to the human holding the set, not only to the analyzer. We are evaluating those pieces incrementally, in private market notes, because each venue and each act wires the room differently. The first honest proofs run on **my own DJ setup** — same crates, same routing surprises, same late-night fixes — before we claim anything about festival scale.
+
+## Platform
+
+The platform story is a straight line from booth to picture. Audio and control data leave the decks on the **local network** (loopback-first, stage-safe). Visuals are composed in real-time **3D** so they can sit behind or beside the performer without fighting the room. **Inference stays local** on the Mac you already brought to the gig. The open repository stays **Apache** so the community can fork the bus without a locker in the cloud; a simpler app can sit on top for people who do not want to live in a terminal. Venues can grow into bigger installs later — more outputs, more machines — but the default is one artist, one laptop, one truth about what track is playing. The tools are there to support the performance. They are not the headliner.
+
+## Roadmap
+
+Sequencing matters because a visual bus is useless if the library lies. **Git ships the foundation first**: music library organization, stems, crates, and remix decks — the boring work that makes paths and names agree across **Apple Music**, **Traktor**, and **Rekordbox**. Only after that foundation holds do we push **OSC** forward into **Unreal**, **ComfyUI**, and other **DCC** delivery paths as proof of concept. What becomes a shrink-wrapped app, what stays a service, and what ships when — that ordering lives in private roadmap notes, not in a public promise date. What you see here is the crate today and the direction of travel tomorrow.
+
+### Progress (Oct 2026)
+
+The crate is **playable again** — paths agree across Music.app, Traktor, and Rekordbox; daily **CRATER** / **BABYLON** hygiene; **Mixed In Key** playlists mirrored into both decks; **STEMIT** handshake with the [stems](https://github.com/ixamal/stems) factory. New in **ix**: **`dj-set-remaster-release`** for clipped booth RECs (loudnorm presets, dry/wet blend with the original, peak ceiling) and tighter **genre** fills from Traktor + Music into empty Rekordbox rows. **Next on the Floor:** deck **OSC** into Unreal and the Niagara scrub path already sketched in [ix](https://github.com/ixamal/ix). Visual bus follows the library, not the other way around.
+
+## Two GitHub homes
+
+- **[ixamal](https://github.com/ixamal)** — where I commit. Issues and milestones live here.
+- **alkalurop (this org)** — public mirror, refreshed when the crate moves (monthly on the **15th**, or on demand).
+
+No audio in git. Scripts, docs, and how a real crate got fixed.
 
 ---
 
-## Technical Context and Competitive Landscape
+## Pick what you need (shipping now)
 
-Live audio-visual performance currently faces a clear structural bottleneck across available toolsets:
-
-1. **Pre-rendered video loops (Resolume, VDMX):** Reliable and industry-standard, but inherently static. Content playback remains fixed regardless of spontaneous live audio changes.
-2. **Procedural shaders (Photism, Sphere V3):** Highly reactive to FFT peaks and amplitude, but limited to 2D geometric patterns and fixed visual ceilings.
-3. **Enterprise 3D & Node Graphs (TouchDesigner, Notch, Custom UE5 Rigs):** Powerful output, but requires steep technical expertise, dedicated VJ operators, and high-cost hardware setups.
-
-**Alkalurops bridges this gap:** A lightweight, local edge-AI pipeline that converts live DAW performance metrics into generative AI diffusion frames, composited directly inside Unreal Engine 5 in real time.
-
----
-
-## Technical Features & Execution
-
-- **Zero-Latency Audio Modulation:** Connects locally over UDP (OSC / MIDI) to map live audio stems, BPM, FFT frequency bands, and performance metrics directly into model parameter weights.
-- **Local Edge Inference:** Executes distilled diffusion models (SDXL Turbo, LCM, Flux.1) locally using PyTorch accelerated via Apple Metal Performance Shaders (MPS `--force-fp16`) or PC GPUs.
-- **Zero-Copy Shared Memory Passing:** Streams generated latent frames (e.g., 512x512) via Syphon (macOS) or NDI (Windows) directly into Unreal Engine 5 materials without disk I/O overhead.
-- **Stage Safety Architecture:** Composites live generative AI textures with UE5’s deterministic lighting, volumetric fog, and Niagara particle systems to preserve system stability and prevent stage output dropouts.
+| If you… | Open |
+| --- | --- |
+| Want files named like songs, not `Track 01`, and decks that agree on the path | [ix](https://github.com/alkalurop/ix) |
+| Want stems on your Mac overnight (vocal / instrumental + Traktor stem file) | [stems](https://github.com/alkalurop/stems) |
+| Moved the library and Traktor/Rekordbox lost the plot | [music_migration](https://github.com/alkalurop/music_migration) |
+| Run Maschine + Traktor + Rekordbox on one machine and hate routing surprises | [blackhole](https://github.com/alkalurop/blackhole) |
+| Want to browse and plan set ideas before touching a database | [ix_bangers](https://github.com/alkalurop/ix_bangers) |
+| Want beatgrids on a whole playlist without clicking every track | [grid](https://github.com/alkalurop/grid) (GPL) |
+| Want Blender stage stuff beside the booth | [stage](https://github.com/alkalurop/stage) (GPL) |
 
 ---
 
-## Ecosystem Comparison
+## Why the crate repos exist
 
-| Tool / Category | Core Engine | Audio Reactivity | Generative AI? | Visual Depth / 3D? | Target Market & Cost |
-| :--- | :--- | :--- | :---: | :---: | :--- |
-| **Alkalurops** | **ComfyUI + Unreal Engine 5 (Syphon/NDI)** | **Deep OSC / Stems / FFT / MIDI** | **Yes (Live Local)** | **Yes (UE5 Engine)** | **Open Source Core / Single-laptop rig** |
-| **Resolume / VDMX** | DXV/HAP Video Layer Mixer | FFT / BPM / MIDI | No | No | €299–€799 (Pre-rendered playback) |
-| **DAW Plugins** *(Sphere, Photism)* | GLSL Procedural Shaders | FFT / Peak Analysis | No | Basic 3D | $30–$100 (Bedroom producer tier) |
-| **TouchDesigner** | GPU Operator Graphs | Comprehensive OSC / DMX | Custom Python | Yes | $600–$2,200 (Commercial/Pro licensing) |
-| **Notch / Enterprise** | Node-based 3D / VFX Engine | Live Audio / Depth Cams | No | Yes | $1,400–$2,500/yr (Windows/NVIDIA) |
-
-*Note: Alkalurops is engineered to complement existing workflows. It can output live AI textures directly into Resolume, TouchDesigner, or MadMapper via Syphon/Spout/NDI.*
+I DJ, I have a day job, and I have a family, and the library still grew on its own — wrong tags, duplicate rows, USB crates, three apps that disagree on the same path. The git stack exists because I needed something that separates **stems from tracks**, fixes **genres and playlists**, and runs **stem batches** once the names are true. That metadata is what will feed the visual bus later; you cannot scrub Niagara to the right record if Rekordbox and Traktor do not agree on what the record is. The code stays **Apache** so the crate stays yours, not a cloud locker someone else can switch off.
 
 ---
 
-## System Architecture
+## How it works today
 
-```
-[ Live DAW / DJ Software (Ableton, Traktor) ]
-                     │
-                     │  (OSC / MIDI over UDP)
-                     ▼
-       [ ComfyUI Edge AI Pipeline ]
-  (PyTorch + MPS / TensorRT + SDXL Turbo)
-                     │
-                     │  (Live Video Stream via Syphon / NDI)
-                     ▼
-     [ Real-Time Engine (UE5 / TouchDesigner) ]
-     (3D Scene, Dynamic Lights, Niagara FX)
-                     │
-                     ▼
-            [ Live Stage Output ]
-```
+Everything that ships right now is **Python and shell on your Mac** — no installer, no account, no phone-home. You clone the repos you need, point them at your music tree, and run passes when the library drifts. That is intentional: the crate on disk is the source of truth, not a dashboard that might disagree with Rekordbox tomorrow.
+
+**CRATER** is the daily hygiene pass — genres, playlists, capture folders, Traktor and Rekordbox alignment, and the quiet cleanup that keeps a growing library from turning into duplicate rows and broken paths. **BABYLON** is the heavier night run when you want hygiene plus an optional **STEMIT** budget (overnight stems) and a clean quit of the decks so the databases can sync without you clicking through save dialogs. Both write human-readable reports under `~/local_tools/crate/reports/` so you can see what moved, what was skipped, and what needs a reload in the app. Step-by-step commands and flags live in [ixamal/ix `docs/crate.md`](https://github.com/ixamal/ix/blob/main/docs/crate.md).
+
+Parallel to the crate, visual work is already moving in **ix** — OSC from the decks, local runtime glue, and experiments that will eventually feed Unreal and the rest of the DCC path described above. None of that is a shrink-wrapped product yet; it is the same repo family, the same Apache ethic, and the same rule that control stays on **127.0.0.1** until you deliberately widen it.
+
+**Licenses:** **Apache-2.0** — ix, stems, blackhole, music_migration, ix_bangers. **GPL** — grid, stage.
 
 ---
 
-## Ecosystem Repositories & Tools
+## Go
 
-Beyond the core graphics engine, the **ixamal** toolset provides the audio routing, track intelligence, crate management, and stem separation modules that drive the real-time visual system.
+**Performers:** Clone [ixamal/ix](https://github.com/ixamal/ix), read **`docs/crate.md`**, dry-run **`crater`** and **`mixed-in-crate`**, then run **`--execute`** when the report looks right. Reload Rekordbox xml (`<>`) after writes. Remaster a booth REC with **`dj-set-remaster-release`** when you need a listenable master without touching the library tree.
 
-### 🎛️ [ixamal/ix](https://github.com/ixamal/ix) — *The Performance Bridge*
-* **For DJs & Producers:** The central nervous system for your live set. `ix` taps into your DAW or DJ deck in real time, translating every beat, drop, filter sweep, and stem channel into clean data streams your visual rig can understand automatically.
-* **Developer Notes:** High-throughput UDP OSC daemon written for sub-millisecond event dispatching. Handles client registration, event loop isolation, and custom OSC schema mapping between DJ software and edge inference nodes.
+**Developers:** Issues and milestones live on **[ixamal](https://github.com/ixamal)** only. Fork the Apache repos, bind OSC/MCP to **127.0.0.1**, and open a PR on the repo you touched. **Floor / Unreal telemetry** is tracked in [ix#9](https://github.com/ixamal/ix/issues/9).
 
----
-
-### 🔊 [ixamal/stems](https://github.com/ixamal/stems) — *Real-Time Stem Separation & Demux*
-* **For DJs & Producers:** Instantly isolate drums, bass, vocals, and synths on the fly. Isolating stems gives your visuals surgical accuracy—letting your lighting react solely to the vocal channel while the background 3D stage pumps to the kick drum.
-* **Developer Notes:** Python/C++ wrapper optimized for local GPU tensor acceleration (Metal / CUDA). Takes incoming multi-channel audio feeds, extracts dynamic stem stems using fast neural audio separation, and outputs separate RMS/FFT streams per channel.
+**Mirror:** **[alkalurop](https://github.com/alkalurop)** (this org) is a read-only git copy of ixamal `main`, refreshed when the crate moves — not a second place to file bugs.
 
 ---
 
-### 📦 [ixamal/crate](https://github.com/ixamal/crate) — *Smart Track & Metadata Vault*
-* **For DJs & Producers:** Stop guessing what visual theme fits a track. `crate` catalogs your library, analyzing energy levels, key changes, and genre characteristics so your visual templates switch dynamically as soon as you cue up the next track.
-* **Developer Notes:** SQLite/Vector-backed library management service. Parses track ID3 tags, Rekordbox/Traktor XML collections, and pre-computed audio embeddings to provide low-latency lookups during live performances.
+## Mirrored repos
 
----
+| Here | Source on ixamal |
+| --- | --- |
+| [ix](https://github.com/alkalurop/ix) | [ixamal/ix](https://github.com/ixamal/ix) |
+| [stems](https://github.com/alkalurop/stems) | [ixamal/stems](https://github.com/ixamal/stems) |
+| [music_migration](https://github.com/alkalurop/music_migration) | [ixamal/music_migration](https://github.com/ixamal/music_migration) |
+| [blackhole](https://github.com/alkalurop/blackhole) | [ixamal/blackhole](https://github.com/ixamal/blackhole) |
+| [ix_bangers](https://github.com/alkalurop/ix_bangers) | [ixamal/ix_bangers](https://github.com/ixamal/ix_bangers) |
+| [grid](https://github.com/alkalurop/grid) | [ixamal/grid](https://github.com/ixamal/grid) |
+| [stage](https://github.com/alkalurop/stage) | [ixamal/stage](https://github.com/ixamal/stage) |
 
-### 🕳️ [ixamal/blackhole](https://github.com/ixamal/blackhole) — *Zero-Latency Audio Routing Pipeline*
-* **For DJs & Producers:** Pure, pristine internal audio routing. Route multi-channel stem audio from your DJ software or DAW straight into the AI visual engine without audio dropouts, latency penalties, or buffer overruns on stage.
-* **Developer Notes:** Virtual audio driver integration layer and loopback pipeline optimized for macOS CoreAudio / Windows WASAPI. Guarantees isolated buffer queues so heavy GPU execution never causes host audio driver starvation.
-
----
-
-### 🔥 [ixamal/ix_bangers](https://github.com/ixamal/ix_bangers) — *Preset Packs & Peak-Time Visual LoRAs*
-* **For DJs & Producers:** High-octane visual presets, LoRA weights, and UE5 stage scenes tuned for peak-time energy. Instant plug-and-play visual profiles built to turn sound waves into massive stage visuals out of the box.
-* **Developer Notes:** Collection of fine-tuned LoRA weights, prompt scheduling profiles, ComfyUI workflow JSON schemas, and pre-built UE5 material instances tuned for rapid model swapping during active performance.
-
----
-
-### 🌐 [ixamal/grid](https://github.com/ixamal/grid) — *Multi-Display & Stage Mapping Controller*
-* **For DJs & Producers:** Take control of any room. `grid` handles your projection mapping, multi-screen stage layouts, and LED wall routing so your live AI visuals look crisp across every display in the venue.
-* **Developer Notes:** Multi-viewport spatial renderer and display router using Syphon/Spout and NDI pipelines. Supports edge blending, UV warping, and dynamic frame scaling across multi-monitor GPU setups.
-
----
-
-## Licensing & Distribution Strategy
-
-Alkalurops is developed under the **Apache 2.0 License**.
-
-- 🛠️ **Open Core (Apache 2.0):** CLI engine, OSC listener nodes, and core Python scripts remain fully open-source for community development and custom integration.
-- 🎛️ **Commercial Application:** Standalone GUI desktop application in development for plug-and-play live execution.
-- 🏟️ **Enterprise & Media Server Integration:** Custom node modules and stage deployment solutions for venues and production environments.
-
----
-
-## Development Roadmap
-
-1. **Phase 1 (Current):** ComfyUI local optimization on Apple Silicon / CUDA, UDP OSC listener nodes, distilled model integration (SDXL Turbo / LCM).
-2. **Phase 2:** Zero-copy Syphon / NDI frame exporter nodes with dynamic bindings to Unreal Engine 5 material instances.
-3. **Phase 3:** Pre-built 3D stage environments, audio-reactive Niagara particle setups, and TouchDesigner C++ integration nodes.
-
----
-
-## Community & Contributions
-
-Contributions, feedback, and architectural discussions from audio engineers, VJs, graphics developers, and ML researchers are welcome. Please refer to the open issues and pull request guidelines in the repository.
+Last mirror: **2026-10-27** — SHAs in [ixamal/ix `docs/notes.md`](https://github.com/ixamal/ix/blob/main/docs/notes.md).
